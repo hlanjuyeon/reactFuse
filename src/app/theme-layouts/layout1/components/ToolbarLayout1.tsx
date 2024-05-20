@@ -6,7 +6,6 @@ import clsx from 'clsx';
 import { memo } from 'react';
 import { selectFuseCurrentLayoutConfig, selectToolbarTheme } from '@fuse/core/FuseSettings/fuseSettingsSlice';
 import { Layout1ConfigDefaultsType } from 'app/theme-layouts/layout1/Layout1Config';
-import NotificationPanelToggleButton from 'src/app/main/apps/notifications/NotificationPanelToggleButton';
 import NavbarToggleButton from 'app/theme-layouts/shared-components/navbar/NavbarToggleButton';
 import { selectFuseNavbar } from 'app/theme-layouts/shared-components/navbar/navbarSlice';
 import { useAppSelector } from 'app/store/hooks';
@@ -77,7 +76,6 @@ function ToolbarLayout1(props: ToolbarLayout1Props) {
 						<FullScreenToggle />
 						<NavigationSearch />
 						<QuickPanelToggleButton />
-						<NotificationPanelToggleButton />
 						<UserMenu />
 					</div>
 
