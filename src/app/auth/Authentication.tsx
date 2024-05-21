@@ -165,6 +165,7 @@ function Authentication(props: AuthenticationProps) {
 			isLoading ? (
 				<FuseSplashScreen />
 			) : (
+				// 로딩=false : 사용자 권한 확인후 페이지 이동
 				<BrowserRouter>
 					<FuseAuthorization userRole={userRole}>{children}</FuseAuthorization>
 				</BrowserRouter>

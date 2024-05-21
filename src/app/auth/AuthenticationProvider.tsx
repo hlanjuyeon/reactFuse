@@ -82,6 +82,7 @@ function AuthenticationProvider(props: AuthenticationProviderProps) {
 			<JwtAuthProvider>
 				<AWSAuthProvider>
 					<FirebaseAuthProvider>
+						{/* 실제 인증 로직 컴포넌트 */}
 						<Authentication>{children}</Authentication>
 					</FirebaseAuthProvider>
 				</AWSAuthProvider>

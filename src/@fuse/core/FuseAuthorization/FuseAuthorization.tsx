@@ -44,9 +44,13 @@ class FuseAuthorization extends Component<FuseAuthorizationProps, State> {
 		};
 	}
 
+	// 내장 함수 
 	componentDidMount() {
+		// 접근 권한
 		const { accessGranted } = this.state;
 
+		// 권한 없으면 리다이렉트
+		// if문이 없다면, 시작페이지에서 sign-up 페이지로 이동하지 않고, '무한로딩'
 		if (!accessGranted) {
 			this.redirectRoute();
 		}
@@ -105,6 +109,7 @@ class FuseAuthorization extends Component<FuseAuthorizationProps, State> {
 		const { userRole, loginRedirectUrl = '/' } = this.props;
 		const redirectUrl = getSessionRedirectUrl() || loginRedirectUrl;
 
+		// isUserGuest 디폴트값 어디?
 		/*
 		User is guest
 		Redirect to Login Page

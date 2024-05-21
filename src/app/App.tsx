@@ -53,12 +53,12 @@ function App() {
 		<MockAdapterProvider>
 			{/* 스타일 사용자 정의 */}
 			<CacheProvider value={createCache(emotionCacheOptions[langDirection] as Options)}>
-				{/* fuse 스타일 : 레이아웃 etc */}
+				{/* 메인 테마, 언어 설정 */}
 				<FuseTheme
 					theme={mainTheme}
 					direction={langDirection}
 				>	
-					{/* 인증 관련 */}
+					{/* 인증 상태에 따른 자식컴포넌트 렌더링 결정 */}
 					<AuthenticationProvider>
 						{/* alert을 위한 React 라이브러리 */}
 						<SnackbarProvider
