@@ -12,6 +12,7 @@ import JwtSignUpTab from './tabs/JwSignUpTab';
 import FirebaseSignUpTab from './tabs/FirebaseSignUpTab';
 import AwsSignUpTab from './tabs/AwsSignUpTab';
 
+// 회원가입 종류 : 어느 것으로 로그인할 것인지
 const tabs = [
 	{
 		id: 'jwt',
@@ -37,6 +38,7 @@ const tabs = [
  * The sign up page.
  */
 function SignUpPage() {
+	// 회원가입 종류 선택 useState
 	const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
 	function handleSelectTab(id: string) {
@@ -47,17 +49,19 @@ function SignUpPage() {
 		<div className="flex min-w-0 flex-1 flex-col items-center sm:flex-row sm:justify-center md:items-start md:justify-start">
 			<Paper className="h-full w-full px-16 py-8 ltr:border-r-1 rtl:border-l-1 sm:h-auto sm:w-auto sm:rounded-2xl sm:p-48 sm:shadow md:flex md:h-full md:w-1/2 md:items-center md:justify-end md:rounded-none md:p-64 md:shadow-none">
 				<div className="mx-auto w-full max-w-320 sm:mx-0 sm:w-320">
+					{/* 로고 */}
 					<img
 						className="w-48"
 						src="assets/images/logo/logo.svg"
 						alt="logo"
 					/>
-
+					{/* 제목 */}
 					<Typography className="mt-32 text-4xl font-extrabold leading-tight tracking-tight">
 						Sign up
 					</Typography>
 					<div className="mt-2 flex items-baseline font-medium">
 						<Typography>Already have an account?</Typography>
+						{/* 로그인 페이지 이동 */}
 						<Link
 							className="ml-4"
 							to="/sign-in"
@@ -66,6 +70,7 @@ function SignUpPage() {
 						</Link>
 					</div>
 
+					{/* 회원가입 종류 선택 */}
 					<Tabs
 						value={_.findIndex(tabs, { id: selectedTabId })}
 						variant="fullWidth"
@@ -88,7 +93,8 @@ function SignUpPage() {
 							/>
 						))}
 					</Tabs>
-
+					
+					{/* 선택된 회원가입 종류에 따른 회원가입 Form 출력 */}
 					{selectedTabId === 'jwt' && <JwtSignUpTab />}
 					{selectedTabId === 'firebase' && <FirebaseSignUpTab />}
 					{selectedTabId === 'aws' && <AwsSignUpTab />}
@@ -160,7 +166,8 @@ function SignUpPage() {
 						fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
 					/>
 				</Box>
-
+				
+				{/* 우측 화면 레이아웃 */}
 				<div className="relative z-10 w-full max-w-2xl">
 					<div className="text-7xl font-bold leading-none text-gray-100">
 						<div>Welcome to</div>

@@ -49,13 +49,18 @@ function App() {
 	const mainTheme = useSelector(selectMainTheme);
 
 	return (
+		// 백엔드 연결없이 테스트를 하고 싶을 때 -> 자체 서버를 통한 자체 통신
 		<MockAdapterProvider>
+			{/* 스타일 사용자 정의 */}
 			<CacheProvider value={createCache(emotionCacheOptions[langDirection] as Options)}>
+				{/* fuse 스타일 : 레이아웃 etc */}
 				<FuseTheme
 					theme={mainTheme}
 					direction={langDirection}
-				>
+				>	
+					{/* 인증 관련 */}
 					<AuthenticationProvider>
+						{/* alert을 위한 React 라이브러리 */}
 						<SnackbarProvider
 							maxSnack={5}
 							anchorOrigin={{

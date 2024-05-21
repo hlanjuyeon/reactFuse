@@ -20,6 +20,7 @@ type ComponentProps = {
 /**
  * A Higher Order Component that provides the necessary context providers for the app.
  */
+// App 컴포넌트를 제공하는 함수
 function withAppProviders(Component: React.ComponentType<ComponentProps>) {
 	/**
 	 * The component that wraps the provided component with the necessary context providers.
@@ -28,6 +29,9 @@ function withAppProviders(Component: React.ComponentType<ComponentProps>) {
 		/**
 		 * The value to pass to the AppContext provider.
 		 */
+
+		// !!!!!!!!!!!!!!!!!!!! useMemo?
+		// 라우팅 설정
 		const val = useMemo(
 			() => ({
 				routes
@@ -36,8 +40,11 @@ function withAppProviders(Component: React.ComponentType<ComponentProps>) {
 		);
 
 		return (
+			// error는 언제 어디서나 발생 가능하므로, 가장 상위 컴포넌트로
 			<ErrorBoundary>
+				{/* routes를 받는 컴포넌트 : routes */}
 				<AppContext.Provider value={val}>
+					{/*  */}
 					<LocalizationProvider dateAdapter={AdapterDateFns}>
 						<Provider store={store}>
 							<StyledEngineProvider injectFirst>

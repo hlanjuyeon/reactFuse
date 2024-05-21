@@ -15,6 +15,9 @@ import useJwtAuth from '../useJwtAuth';
 /**
  * Form Validation Schema
  */
+
+// z <-- 무엇인가?
+// email & password : 유효성 검사
 const schema = z.object({
 	email: z.string().email('You must enter a valid email').nonempty('You must enter an email'),
 	password: z
@@ -26,9 +29,10 @@ const schema = z.object({
 type FormType = {
 	email: string;
 	password: string;
-	remember?: boolean;
+	remember?: boolean; // 로그인 정보 저장여부
 };
 
+// 로그인 정보 defalut 
 const defaultValues = {
 	email: '',
 	password: '',
@@ -85,6 +89,7 @@ function JwtSignInForm() {
 			className="mt-32 flex w-full flex-col justify-center"
 			onSubmit={handleSubmit(onSubmit)}
 		>
+			{/* email 입력 */}
 			<Controller
 				name="email"
 				control={control}
@@ -104,6 +109,7 @@ function JwtSignInForm() {
 				)}
 			/>
 
+			{/* password 입력 */}
 			<Controller
 				name="password"
 				control={control}
@@ -141,6 +147,7 @@ function JwtSignInForm() {
 					)}
 				/>
 
+				{/* password 분실했을 때 */}
 				<Link
 					className="text-md font-medium"
 					to="/pages/auth/forgot-password"
@@ -148,7 +155,8 @@ function JwtSignInForm() {
 					Forgot password?
 				</Link>
 			</div>
-
+			
+			{/* 로그인 완료 Btn */}
 			<Button
 				variant="contained"
 				color="secondary"

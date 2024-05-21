@@ -6,8 +6,10 @@ import JwtSignInForm from '../../../auth/services/jwt/components/JwtSignInForm';
 function jwtSignInTab() {
 	return (
 		<div className="w-full">
+			{/* JWT 로그인 Form */}
 			<JwtSignInForm />
 
+			{/* 소셜 로그인 선택 : "형태만 구현되어 있고, 기능 구현 x" */}
 			<div className="mt-32 flex items-center">
 				<div className="mt-px flex-auto border-t" />
 				<Typography

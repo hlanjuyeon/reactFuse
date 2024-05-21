@@ -14,6 +14,7 @@ import JwtLoginTab from './tabs/JwtSignInTab';
 import FirebaseSignInTab from './tabs/FirebaseSignInTab';
 import AwsSignInTab from './tabs/AwsSignInTab';
 
+// 로그인 종류 : 어느 것으로 로그인할 것인지
 const tabs = [
 	{
 		id: 'jwt',
@@ -39,6 +40,7 @@ const tabs = [
  * The sign in page.
  */
 function SignInPage() {
+	// 로그인/회원가입 종류 선택 useState
 	const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
 	function handleSelectTab(id: string) {
@@ -60,6 +62,7 @@ function SignInPage() {
 					</Typography>
 					<div className="mt-2 flex items-baseline font-medium">
 						<Typography>Don't have an account?</Typography>
+						{/* 회원가입 페이지 이동 */}
 						<Link
 							className="ml-4"
 							to="/sign-up"
@@ -77,6 +80,7 @@ function SignInPage() {
 						Documentation.
 					</Alert>
 
+					{/* 로그인 종류 선택 Tab */}
 					<Tabs
 						value={_.findIndex(tabs, { id: selectedTabId })}
 						variant="fullWidth"
@@ -100,6 +104,7 @@ function SignInPage() {
 						))}
 					</Tabs>
 
+					{/* 선택된 로그인 종류에 따른 로그인 Form 출력 */}
 					{selectedTabId === 'jwt' && <JwtLoginTab />}
 					{selectedTabId === 'firebase' && <FirebaseSignInTab />}
 					{selectedTabId === 'aws' && <AwsSignInTab />}
@@ -171,7 +176,8 @@ function SignInPage() {
 						fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
 					/>
 				</Box>
-
+				
+				{/* 우측 화면 레이아웃 */}
 				<div className="relative z-10 w-full max-w-2xl">
 					<div className="text-7xl font-bold leading-none text-gray-100">
 						<div>Welcome to</div>
