@@ -13,6 +13,8 @@ import App from './app/App';
  */
 const container = document.getElementById('root');
 
+
+// root 태그를 못 찾는다면, error 발생
 if (!container) {
 	throw new Error('Failed to find the root element');
 }
@@ -22,6 +24,7 @@ if (!container) {
  */
 const root = createRoot(container);
 
+// App 컴포넌트 렌더링
 root.render(<App />);
 
 // reportWebVitals();

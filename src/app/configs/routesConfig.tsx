@@ -47,8 +47,8 @@ const routes: FuseRoutesType = [
 	// 권한 부여로 이동가능
 	{
 		path: '/',
-		// element: <Navigate to="/example" />,
-		// auth: settingsConfig.defaultAuth	
+		element: <Navigate to="/example" />,
+		auth: settingsConfig.defaultAuth	
 	},
 	// loading
 	{

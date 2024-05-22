@@ -109,19 +109,24 @@ class FuseAuthorization extends Component<FuseAuthorizationProps, State> {
 		const { userRole, loginRedirectUrl = '/' } = this.props;
 		const redirectUrl = getSessionRedirectUrl() || loginRedirectUrl;
 
-		// isUserGuest 디폴트값 어디?
 		/*
 		User is guest
 		Redirect to Login Page
 		*/
+		// role (admin, staff, user)이 없다는 건 회원이 아님
+		// 즉, guest이므로 로그인 먼저 하세요.
 		if (isUserGuest(userRole)) {
-			setTimeout(() => history.push('/sign-in'), 0);
+			console.log("userRole", userRole);
+			console.log("isUserGuest(userRole)", isUserGuest(userRole));
+				
 		} else {
 			/*
 		  User is member
 		  User must be on unAuthorized page or just logged in
 		  Redirect to dashboard or loginRedirectUrl
 			*/
+			console.log("getSessionRedirectUrl()" , getSessionRedirectUrl());
+			console.log("loginRedirectUrl" , loginRedirectUrl);
 			setTimeout(() => history.push(redirectUrl), 0);
 			resetSessionRedirectUrl();
 		}

@@ -21,7 +21,8 @@ function updateRedirectUrl(user: PartialDeep<User>) {
  */
 export const setUser = createAsyncThunk<User, User>('user/setUser', async (user) => {
 	updateRedirectUrl(user);
-
+	console.log(!user.data.loginRedirectUrl);
+	console.log("zz" , settingsConfig.loginRedirectUrl);
 	return user;
 });
 

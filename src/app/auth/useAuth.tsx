@@ -4,6 +4,7 @@ import useJwtAuth from './services/jwt/useJwtAuth';
 import { AuthContext, AuthContextType } from './AuthenticationProvider';
 import useFirebaseAuth from './services/firebase/useFirebaseAuth';
 import { User } from './user';
+import { ConsoleLogger } from 'aws-amplify/utils';
 
 interface AuthProvider {
 	signOut: () => void;
@@ -32,6 +33,7 @@ function useAuth(): AuthContextType & { signOut: () => void } {
 
 	const signOut = () => {
 		const authProvider = context.getAuthProvider();
+		console.log("authProvider", authProvider);
 		authProviders[authProvider]?.signOut();
 	};
 

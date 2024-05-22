@@ -39,7 +39,7 @@ function withAppProviders(Component: React.ComponentType<ComponentProps>) {
 				처음 실행될 때 그 값을 메모리에 저장하고
 				필요할 때마다 과정 실행없이 메모리에서 꺼내서 재사용
 		*/
-		// 라우팅 
+		// 라우트 불러오기
 		const val = useMemo(
 			() => ({
 				routes
@@ -52,9 +52,9 @@ function withAppProviders(Component: React.ComponentType<ComponentProps>) {
 			<ErrorBoundary>
 				{/* routes를 받는 컴포넌트 : routes */}
 				<AppContext.Provider value={val}>
-					{/* 날짜/시간 전달하는 컴포넌트 */}
+					{/* 날짜/시간 전달하는 최상위 부모 컴포넌트 느낌? */}
 					<LocalizationProvider dateAdapter={AdapterDateFns}>
-						{/* Redux 스토어를 React에 주입 !!!!!!!!!!!!!!!! Redux */}
+						{/* Redux 스토어를 React에 주입 */}
 						<Provider store={store}>
 							{/* 
 								스타일링 엔진의 우선순위 결정
