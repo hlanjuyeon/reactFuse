@@ -8,6 +8,7 @@ import SignUpConfig from '../main/sign-up/SignUpConfig';
 import SignOutConfig from '../main/sign-out/SignOutConfig';
 import Error404Page from '../main/404/Error404Page';
 import ExampleConfig from '../main/example/ExampleConfig';
+import dashboardsConfigs from '../main/dashboards/dashboardsConfigs';
 
 /*
 	페이지 라우팅 설정 : /example, /sign-out, /sign-in, /sign-up
@@ -18,7 +19,19 @@ import ExampleConfig from '../main/example/ExampleConfig';
 							-> type FuseRouteItemType[]
 								-> type RouteObject + auth(선택) , settings(선택)
 */
-const routeConfigs: FuseRouteConfigsType = [ExampleConfig, SignOutConfig, SignInConfig, SignUpConfig];
+const routeConfigs: FuseRouteConfigsType = [
+	
+	// ExampleConfig, 
+	
+	SignOutConfig, SignInConfig, SignUpConfig,
+
+	// DocumentationConfig,
+	// ...PagesConfigs,
+	// ...UserInterfaceConfigs,
+	...dashboardsConfigs,
+	// ...AppsConfigs,
+	// ...authRoleExamplesConfigs
+];
 
 /**
  * The routes of the application.
