@@ -65,11 +65,11 @@ function ProjectDashboardAppHeader({ onSelectedValueChange, onPurpleChange }) {
 		}
 	};
 
-	// // 버튼 클릭 시 스타일 변경 함수
-	// const handleButtonClick = () => {
-	// 	setIsPurple(!isPurple);
-	// 	onPurpleChange(!isPurple); // 부모 컴포넌트의 함수 호출
-	// };
+	// 버튼 클릭 시 스타일 변경 함수
+	const handleButtonClick = () => {
+		setIsPurple(!isPurple);
+		onPurpleChange(!isPurple); // 부모 컴포넌트의 함수 호출
+	};
 
 	console.log("purple", isPurple);
 	console.log("change id", selectedProject.id);
@@ -133,7 +133,7 @@ function ProjectDashboardAppHeader({ onSelectedValueChange, onPurpleChange }) {
 						color="secondary"
 						startIcon={<FuseSvgIcon size={20}>heroicons-solid:cog</FuseSvgIcon>}
 						onClick={() => {
-							// handleButtonClick();
+							handleButtonClick();
 						}}
 					>
 						Settings

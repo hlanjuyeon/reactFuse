@@ -150,7 +150,7 @@ function ScheduleWidget() {
 				))}
 			</List>
 
-			{/* <Modal
+			<Modal
 				size="lg"
 				aria-labelledby="contained-modal-title-vcenter"
 				centered show={showModal}
@@ -168,7 +168,7 @@ function ScheduleWidget() {
 						Close
 					</Button>
 				</Modal.Footer>
-			</Modal> */}
+			</Modal>
 		</Paper>
 	);
 }
