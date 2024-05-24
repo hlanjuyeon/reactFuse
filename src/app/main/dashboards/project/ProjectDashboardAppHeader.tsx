@@ -35,7 +35,6 @@ function ProjectDashboardAppHeader({ onSelectedValueChange, onPurpleChange }) {
 			id,
 			menuEl: null
 		});
-		console.log("change", selectedProject.id);
 	}
 
 	// 프로젝트 메뉴 버튼 클릭시 open
@@ -60,27 +59,20 @@ function ProjectDashboardAppHeader({ onSelectedValueChange, onPurpleChange }) {
 		return <FuseLoading />;
 	}
 
-	const sendValueToParent = (value) => {
+	const sendIdToParent = (id) => {
 		if (onSelectedValueChange) {
-			onSelectedValueChange(value); // 부모 컴포넌트의 함수 호출
+			onSelectedValueChange(id); // 부모 컴포넌트의 함수 호출
 		}
 	};
 
-	const sendPurpleToParent = (value) => {
-		if (onPurpleChange) {
-		onPurpleChange(value); // 부모 컴포넌트의 함수 호출
-		}
+	// // 버튼 클릭 시 스타일 변경 함수
+	// const handleButtonClick = () => {
+	// 	setIsPurple(!isPurple);
+	// 	onPurpleChange(!isPurple); // 부모 컴포넌트의 함수 호출
+	// };
 
-		console.log("onPurpleChange(isPurple)", onPurpleChange(isPurple));
-	};
-
-
-	// 버튼 클릭 시 스타일 변경 함수
-	const handleButtonClick = () => {
-		setIsPurple(!isPurple); // 상태를 토글
-	};
-
-	console.log("pur", isPurple);
+	console.log("purple", isPurple);
+	console.log("change id", selectedProject.id);
 
 	return (
 		<div className="flex flex-col w-full px-24 sm:px-32">
@@ -141,8 +133,7 @@ function ProjectDashboardAppHeader({ onSelectedValueChange, onPurpleChange }) {
 						color="secondary"
 						startIcon={<FuseSvgIcon size={20}>heroicons-solid:cog</FuseSvgIcon>}
 						onClick={() => {
-							handleButtonClick();
-							sendPurpleToParent(!isPurple);
+							// handleButtonClick();
 						}}
 					>
 						Settings
@@ -192,7 +183,7 @@ function ProjectDashboardAppHeader({ onSelectedValueChange, onPurpleChange }) {
 								key={project.id}
 								onClick={() => {
 									handleChangeProject(project.id);
-									sendValueToParent(project.id);
+									sendIdToParent(project.id);
 								}}
 							>
 								{project.name}

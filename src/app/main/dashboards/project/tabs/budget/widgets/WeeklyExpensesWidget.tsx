@@ -62,6 +62,7 @@ function WeeklyExpensesWidget() {
 	return (
 		<Paper className="flex flex-col flex-auto p-24 shadow rounded-2xl overflow-hidden">
 			<div className="flex items-start justify-between">
+				{/* title */}
 				<div className="text-lg font-medium tracking-tight leading-6 truncate">Weekly Expenses</div>
 				<div className="ml-8 -mt-8 -mr-12">
 					<IconButton>
@@ -72,6 +73,7 @@ function WeeklyExpensesWidget() {
 			<div className="flex items-center mt-4">
 				<div className="flex flex-col">
 					<div className="text-3xl font-semibold tracking-tight leading-tight">
+						{/* amount를 USD 통화로 변환해서 출력 */}
 						{amount.toLocaleString('en-US', {
 							style: 'currency',
 							currency: 'USD'

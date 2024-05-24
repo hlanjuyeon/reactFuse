@@ -28,7 +28,8 @@ function BudgetTab() {
 			variants={container}
 			initial="hidden"
 			animate="show"
-		>
+		>	
+			{/* Budget Distribution Box */}
 			<motion.div
 				variants={item}
 				className="sm:col-span-3 lg:col-span-4"
@@ -36,19 +37,29 @@ function BudgetTab() {
 				<BudgetDistributionWidget />
 			</motion.div>
 
+			{/* 
+			
+				Weekly Expenses Box / Monthly Expenses / Yearly Expenses : 흐름 비슷
+
+				Weekly Expenses에서 주석 확인
+				차트 관련 : GithubIssuesWidget.tsx에서 주석 확인
+			*/}
 			<div className="sm:col-span-3 lg:col-span-2 grid grid-cols-1 gap-y-24">
+				{/* Weekly Expenses Box */}
 				<motion.div
 					variants={item}
 					className="sm:col-span-2"
 				>
 					<WeeklyExpensesWidget />
 				</motion.div>
+				{/* Monthly Expenses Box */}
 				<motion.div
 					variants={item}
 					className="sm:col-span-2"
 				>
 					<MonthlyExpensesWidget />
 				</motion.div>
+				{/* Yearly Expenses Box */}
 				<motion.div
 					variants={item}
 					className="sm:col-span-2"
@@ -57,6 +68,7 @@ function BudgetTab() {
 				</motion.div>
 			</div>
 
+			{/* Budget Details Box */}
 			<motion.div
 				variants={item}
 				className="sm:col-span-6"

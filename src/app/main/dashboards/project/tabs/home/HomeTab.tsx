@@ -48,12 +48,17 @@ function HomeTab() {
 			<motion.div variants={item}>
 				<IssuesWidget />
 			</motion.div>
-			{/* Features */}
+			{/* Features Box */}
 			<motion.div variants={item}>
 				<FeaturesWidget />
 			</motion.div>
 
-			{/* Github Issues Summary */}
+			{/* 
+				Github Issues / Task Distribution : 동작 흐름 비슷
+			
+				Github Issues의 주석을 통해 확인 가능
+			*/}
+			{/* Github Issues Summary Box */}
 			<motion.div
 				variants={item}
 				className="sm:col-span-2 md:col-span-4"
@@ -67,6 +72,7 @@ function HomeTab() {
 			>
 				<TaskDistributionWidget />
 			</motion.div>
+
 			{/* Schedule Box */}
 			<motion.div
 				variants={item}

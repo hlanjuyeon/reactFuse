@@ -24,7 +24,8 @@ function TeamTab() {
 			variants={container}
 			initial="hidden"
 			animate="show"
-		>
+		>	
+			{/* TeamMembers Box */}
 			<motion.div
 				variants={item}
 				className="widget flex w-full"

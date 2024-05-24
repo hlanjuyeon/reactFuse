@@ -13,6 +13,9 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { useGetProjectDashboardWidgetsQuery } from '../../../ProjectDashboardApi';
 import ScheduleDataType from './types/ScheduleDataType';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 /**
  * The ScheduleWidget widget.
@@ -30,15 +33,25 @@ function ScheduleWidget() {
 		return null;
 	}
 
+	{/* GithubIssuesWidget.tsx에서 주석 확인 : mock-api.json 확인하는 법 */ }
 	const { series, ranges } = widget;
 	const [tabValue, setTabValue] = useState(0);
 	const currentRange = Object.keys(ranges)[tabValue];
 
+	const [showModal, setShowModal] = useState(false);
+
+	const handleButtonClick = () => {
+		setShowModal(true);
+	};
+
 	return (
 		<Paper className="flex flex-col flex-auto p-24 shadow rounded-2xl overflow-hidden h-full">
 			<div className="flex flex-col sm:flex-row items-start justify-between">
+				{/* Title */}
 				<Typography className="text-lg font-medium tracking-tight leading-6 truncate">Schedule</Typography>
+				{/* GithubIssuesWidget.tsx에서 주석 확인 */}
 				<div className="mt-12 sm:mt-0 sm:ml-8">
+					{/* today / tomorrow */}
 					<Tabs
 						value={tabValue}
 						onChange={(ev, value: number) => setTabValue(value)}
@@ -69,6 +82,7 @@ function ScheduleWidget() {
 				</div>
 			</div>
 			<List className="py-0 mt-8 divide-y">
+				{/* seriesd에서 현재 Range에 따른 데이터 출력 */}
 				{series[currentRange].map((item, index) => (
 					<ListItem
 						key={index}
@@ -76,9 +90,11 @@ function ScheduleWidget() {
 					>
 						<ListItemText
 							classes={{ root: 'px-8', primary: 'font-medium' }}
+							// 일정 title
 							primary={item.title}
 							secondary={
 								<span className="flex flex-col sm:flex-row sm:items-center -ml-2 mt-8 sm:mt-4 space-y-4 sm:space-y-0 sm:space-x-12">
+									{/* 출력중인 일정 title에 대한 time 데이터가 있다면 출력 */}
 									{item.time && (
 										<span className="flex items-center">
 											<FuseSvgIcon
@@ -97,6 +113,7 @@ function ScheduleWidget() {
 										</span>
 									)}
 
+									{/* 출력중인 일정 title에 대한 location 데이터가 있다면 출력 */}
 									{item.location && (
 										<span className="flex items-center">
 											<FuseSvgIcon
@@ -117,10 +134,14 @@ function ScheduleWidget() {
 								</span>
 							}
 						/>
+						{/* 상세보기 아이콘 느낌? : 기능없음 */}
 						<ListItemSecondaryAction>
 							<IconButton
 								aria-label="more"
 								size="large"
+								onClick={() => {
+									handleButtonClick();
+								}}
 							>
 								<FuseSvgIcon>heroicons-solid:chevron-right</FuseSvgIcon>
 							</IconButton>
@@ -128,6 +149,26 @@ function ScheduleWidget() {
 					</ListItem>
 				))}
 			</List>
+
+			{/* <Modal
+				size="lg"
+				aria-labelledby="contained-modal-title-vcenter"
+				centered show={showModal}
+				onHide={() => setShowModal(false)}>
+				<Modal.Header closeButton>
+					<Modal.Title id="contained-modal-title-vcenter" >
+						Schedule Titile
+					</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					Schedule Content
+				</Modal.Body>
+				<Modal.Footer>
+					<Button onClick={() => setShowModal(false)}>
+						Close
+					</Button>
+				</Modal.Footer>
+			</Modal> */}
 		</Paper>
 	);
 }

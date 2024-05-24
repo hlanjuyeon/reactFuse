@@ -58,10 +58,13 @@ function TeamMembersWidget() {
 								alt="member"
 							/>
 						</div>
+						{/* name */}
 						<Typography className="mt-24 font-medium">{member.name}</Typography>
+						{/* position */}
 						<Typography color="text.secondary">{member.title}</Typography>
 					</div>
 					<div className="flex items-center w-full border-t divide-x">
+						{/* email */}
 						<a
 							className="flex flex-auto items-center justify-center py-16 hover:bg-hover"
 							href={`mailto:${member.email}`}
@@ -75,6 +78,7 @@ function TeamMembersWidget() {
 							</FuseSvgIcon>
 							<Typography className="ml-8">Email</Typography>
 						</a>
+						{/* phone */}
 						<a
 							className="flex flex-auto items-center justify-center py-16 hover:bg-hover"
 							href={`tel${member.phone}`}

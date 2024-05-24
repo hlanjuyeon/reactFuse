@@ -11,6 +11,7 @@ import { useGetProjectDashboardWidgetsQuery } from '../../../ProjectDashboardApi
 /**
  * The BudgetDistributionWidget widget.
  */
+// bug : 차트 안 보임
 function BudgetDistributionWidget() {
 	const { data: widgets, isLoading } = useGetProjectDashboardWidgetsQuery();
 
