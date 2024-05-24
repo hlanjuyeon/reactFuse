@@ -102,7 +102,7 @@ function ProjectDashboardApp() {
 						/>
 					</Tabs>
 					{/* && 연산자 왼쪽이 참이라면, 오른쪽 반환 */ }
-					{/* {selectedValue === 1 &&
+					{selectedValue === 1 &&
 						<>
 						{tabValue === 0 && <HomeTab />}
 						{tabValue === 1 && <BudgetTab />}
@@ -111,7 +111,7 @@ function ProjectDashboardApp() {
 					}
 					{selectedValue === 2 && <FrontendProject />}
 					{selectedValue === 3 && <CreapondProject />}
-					{selectedValue === 4 && <WithinpixelsProject />} */}
+					{selectedValue === 4 && <WithinpixelsProject />}
 				</div>
 			}
 		/>
