@@ -23,7 +23,7 @@ const routeConfigs: FuseRouteConfigsType = [
 	
 	// ExampleConfig, 
 	
-	SignOutConfig, SignInConfig, SignUpConfig,
+	SignOutConfig, SignInConfig, SignUpConfig, ExampleConfig,
 
 	// DocumentationConfig,
 	// ...PagesConfigs,

@@ -14,7 +14,7 @@ i18next.addResourceBundle('ar', 'navigation', ar);
 const navigationConfig: FuseNavItemType[] = [
 	{
 		id: 'example-component',
-		title: 'Example',
+		title: '社員管理',
 		translate: 'EXAMPLE',
 		type: 'item',
 		icon: 'heroicons-outline:star',

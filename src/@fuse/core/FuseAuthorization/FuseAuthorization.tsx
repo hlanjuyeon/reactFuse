@@ -117,7 +117,7 @@ class FuseAuthorization extends Component<FuseAuthorizationProps, State> {
 		if (isUserGuest(userRole)) {
 			console.log("userRole", userRole);
 			console.log("isUserGuest(userRole)", isUserGuest(userRole));
-				
+			setTimeout(() => history.push('/sign-in'), 0);
 		} else {
 			/*
 		  User is member
