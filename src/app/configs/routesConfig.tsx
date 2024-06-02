@@ -9,6 +9,7 @@ import SignOutConfig from '../main/sign-out/SignOutConfig';
 import Error404Page from '../main/404/Error404Page';
 import ExampleConfig from '../main/example/ExampleConfig';
 import dashboardsConfigs from '../main/dashboards/dashboardsConfigs';
+import EmpConfig from '../main/example/EmpConfig';
 
 /*
 	페이지 라우팅 설정 : /example, /sign-out, /sign-in, /sign-up
@@ -23,7 +24,7 @@ const routeConfigs: FuseRouteConfigsType = [
 	
 	// ExampleConfig, 
 	
-	SignOutConfig, SignInConfig, SignUpConfig, ExampleConfig,
+	SignOutConfig, SignInConfig, SignUpConfig, EmpConfig,
 
 	// DocumentationConfig,
 	// ...PagesConfigs,
