@@ -125,7 +125,7 @@
         "@vitejs/plugin-react": "4.2.1",
         "ajv": "8.12.0",
         "autoprefixer": "10.4.16",
-        "cross-env": "7.0.3",
+        "cross-env": "^7.0.3",
         "eslint": "8.56.0",
         "eslint-config-airbnb": "19.0.4",
         "eslint-config-prettier": "9.1.0",
@@ -157,6 +157,7 @@
         "vite-plugin-svgr": "4.2.0",
         "vite-tsconfig-paths": "4.3.1"
     },
+    "homepage": "https://hlanjuyeon.github.io/reactFuse/",
     "scripts": {
         "start": "npm run dev",
         "dev": "vite",
@@ -171,7 +172,6 @@
         "audit": "npm audit --production",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
-        "homepage": "https://hlanjuyeon.github.io/reactFuse/"
     },
     "engines": {
         "node": ">=18.0.0",
