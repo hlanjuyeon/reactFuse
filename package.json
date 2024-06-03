@@ -171,7 +171,7 @@
         "poststart": "node src/node-scripts/fuse-react-message.js",
         "audit": "npm audit --production",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
+        "deploy": "gh-pages -d build"
     },
     "engines": {
         "node": ">=18.0.0",
