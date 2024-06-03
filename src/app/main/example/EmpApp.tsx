@@ -7,23 +7,35 @@ import EmpHeader from './EmpHeader';
 import EmpList from './EmpList';
 import { employees } from './models/empModel';
 import EmpNavbar from './empNavbar/EmpNavbar';
-import { EmpSidebarContent } from './EmpSidebarContent';
 import { useTranslation } from 'react-i18next';
 import { Layout1ConfigDefaultsType } from 'app/theme-layouts/layout1/Layout1Config';
 import { useAppSelector } from 'app/store/hooks';
 import { selectFuseCurrentLayoutConfig } from '@fuse/core/FuseSettings/fuseSettingsSlice';
+import EmpSidebarContent from './EmpSidebarContent';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
+    '&.FusePageSimple-scroll-content': {
+		height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        width: '85%',
+	},
     '& .FusePageSimple-header': {
         backgroundColor: theme.palette.background.paper
-    }
+    },
+
+    
+	'& .FusePageSimple-content': {
+		display: 'inline',
+	},
+
 }));
 
 /**
  * The ContactsApp page.
  */
 function EmpApp() {
-	const { t } = useTranslation('empPage');
+    const { t } = useTranslation('empPage');
 
     const config = useAppSelector(selectFuseCurrentLayoutConfig) as Layout1ConfigDefaultsType;
 
@@ -37,9 +49,16 @@ function EmpApp() {
     }, [routeParams]);
 
     return (
-        <>
+        <div className='flex-row'>
             {/* config.toolbar.style 적용 */}
-            <div>
+            <div className="leftMenu"
+                style={{
+                    display: 'flex',
+                    float: 'left', width: '15%',
+                    justifyContent: 'left', height: '100%',
+                    boxShadow: '2px 0 0 rgba(0, 0, 0, 0.1)',
+                }}
+            >
                 <EmpNavbar />
             </div>
             <Root
@@ -52,10 +71,9 @@ function EmpApp() {
                 rightSidebarWidth={640}
                 rightSidebarVariant="temporary"
                 scroll={isMobile ? 'normal' : 'content'}
-            >
-
+            >   
             </Root>
-        </>
+        </div>
     );
 }
 

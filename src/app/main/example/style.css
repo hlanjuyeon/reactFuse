@@ -1,0 +1,9 @@
+.btn_ani:hover {
+    color: #928CEF; /* 마우스 오버 시 글자 색상 */
+    border-bottom: 3px solid #928CEF;
+}
+
+.btn_ani:active {
+    color: #928CEF; /* 마우스 오버 시 글자 색상 */
+    border-bottom: 3px solid #928CEF;
+}

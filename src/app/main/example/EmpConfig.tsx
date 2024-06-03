@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import en from './i18n/en';
 import tr from './i18n/tr';
 import ar from './i18n/ar';
+import EmpDetail from './form/EmpDetail';
 
 i18next.addResourceBundle('en', 'examplePage', en);
 i18next.addResourceBundle('tr', 'examplePage', tr);
@@ -17,8 +18,18 @@ const EmpConfig = {
 	routes: [
 		{
 			path: 'emp',
-			element: <EmpApp />
-		}
+			element: <EmpApp />,
+			children: [
+				{
+					path: ':id',
+					element: <EmpDetail />
+				},
+				{
+					path: ':id/edit',
+					// element: <ContactForm />
+				}
+			]
+		},
 	]
 };
 
