@@ -28,7 +28,7 @@ function FieldTab({emp}) {
                 >
                     現場名
                 </div>
-                <div>{emp.id}</div>
+                <div>No Data</div>
             </div>
             <div
                 style={{
@@ -55,7 +55,7 @@ function FieldTab({emp}) {
                 >
                     状態
                 </div>
-                <div>{emp.id}</div>
+                <div>No Data</div>
             </div>
         </>
     )
