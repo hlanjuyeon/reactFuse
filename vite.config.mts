@@ -59,5 +59,6 @@ export default defineConfig({
 				".js": "jsx",
 			},
 		},
-	}
+	},
+	base: "/reactFuse/"
 });
