@@ -8,7 +8,7 @@ import { BrowserRouterProps, Router } from 'react-router-dom';
  * It also integrates with `useLayoutEffect` to listen for changes to the `location` state from the browser's `history` object.
  */
 function BrowserRouter(props: BrowserRouterProps) {
-	const { basename = "https://hlanjuyeon.github.io/reactFuse/", children } = props;
+	const { basename, children } = props;
 
 	const [state, setState] = useState({
 		action: history.action,
