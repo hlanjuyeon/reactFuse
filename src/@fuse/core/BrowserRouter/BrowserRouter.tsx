@@ -15,11 +15,13 @@ function BrowserRouter(props: BrowserRouterProps) {
 		location: history.location
 	});
 
+	const temp = "/reactFuse"
+
 	useLayoutEffect(() => history.listen(setState), [history]);
 
 	return (
 		<Router
-			basename={basename}
+			basename={temp}
 			location={state.location}
 			navigationType={state.action}
 			navigator={history}
