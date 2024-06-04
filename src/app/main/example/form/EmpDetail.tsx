@@ -9,6 +9,8 @@ import edit from './formImg/edit.png';
 import { useLocation, useOutletContext, useParams } from 'react-router';
 import React from 'react';
 import { employees } from '../models/empModel';
+import { useGetEmpsItemQuery } from '../EmpsApi';
+import FuseLoading from '@fuse/core/FuseLoading';
 
 
 function EmpDetail() {
@@ -16,14 +18,28 @@ function EmpDetail() {
     const [tabValue, setTabValue] = useState(0);
 
     const routeParams = useParams();
-    const { id: id } = routeParams as { id: string };
+    const { id: empId } = routeParams as { id: string };
 
-    const idAsNumber = parseInt(id, 10);
+    const {
+        data: emp,
+        isLoading,
+        isError
+    } = useGetEmpsItemQuery(empId, {
+        skip: !empId
+    });
 
-    console.log("id", id);
+    console.log("emp", emp);
 
     function handleChangeTab(value: number) {
         setTabValue(value);
+    }
+
+    if (isLoading) {
+        return <FuseLoading />;
+    }
+
+    if (isError || !emp) {
+        return <div>Error occurred while loading emp data.</div>;
     }
 
     return (
@@ -58,10 +74,7 @@ function EmpDetail() {
                         marginTop: '11rem',
                     }}
                 >
-                                            {employees
-                            .filter(emp => emp.id === idAsNumber)
-                            .map(emp => (
-                                <React.Fragment key={emp.id}>
+
                     <div
                         style={{
                             width: '100%',
@@ -172,14 +185,10 @@ function EmpDetail() {
                         }}
                     >
 
-                                    {tabValue === 0 && <BasicTab emp={emp} />}
-                                    {tabValue === 1 && <FieldTab emp={emp} />}
+                        {tabValue === 0 && <BasicTab emp={emp} />}
+                        {tabValue === 1 && <FieldTab emp={emp} />}
 
                     </div>
-                                </React.Fragment>
-                            ))
-                        }
-
                 </div>
             </div>
         </>

@@ -1,6 +1,17 @@
 import EmpListItem from "./EmpListItem";
+import { Emp, useGetEmpsListQuery } from "./EmpsApi";
+import FuseLoading from "@fuse/core/FuseLoading";
 
-function EmpList({ employees }) {
+// function EmpList( { employees } ) {
+function EmpList() {
+
+    const { data: empDB, isLoading } = useGetEmpsListQuery();
+
+	if (isLoading) {
+		return <FuseLoading />;
+	}
+
+    const emp = empDB;
 
     return (
         <div className='flex-row'>
@@ -91,7 +102,14 @@ function EmpList({ employees }) {
                     勤続年数
                 </div>
             </div>
-            {employees.map((emp) => (
+            {/* {employees.map((emp) => (
+                <EmpListItem
+                    key={emp.id}
+                    emp={emp}
+                />
+            ))
+            } */}
+                        {emp.map((emp) => (
                 <EmpListItem
                     key={emp.id}
                     emp={emp}

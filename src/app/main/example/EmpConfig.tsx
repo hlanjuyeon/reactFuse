@@ -4,6 +4,7 @@ import en from './i18n/en';
 import tr from './i18n/tr';
 import ar from './i18n/ar';
 import EmpDetail from './form/EmpDetail';
+import EmpForm from './form/EmpForm';
 
 i18next.addResourceBundle('en', 'examplePage', en);
 i18next.addResourceBundle('tr', 'examplePage', tr);
@@ -26,7 +27,7 @@ const EmpConfig = {
 				},
 				{
 					path: ':id/edit',
-					// element: <ContactForm />
+					element: <EmpForm />
 				}
 			]
 		},

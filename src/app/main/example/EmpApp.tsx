@@ -12,6 +12,7 @@ import { Layout1ConfigDefaultsType } from 'app/theme-layouts/layout1/Layout1Conf
 import { useAppSelector } from 'app/store/hooks';
 import { selectFuseCurrentLayoutConfig } from '@fuse/core/FuseSettings/fuseSettingsSlice';
 import EmpSidebarContent from './EmpSidebarContent';
+import { useGetEmpsListQuery } from './EmpsApi';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
     '&.FusePageSimple-scroll-content': {
@@ -44,6 +45,8 @@ function EmpApp() {
     const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
     const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
+    useGetEmpsListQuery();
+
     useEffect(() => {
         setRightSidebarOpen(Boolean(routeParams.id));
     }, [routeParams]);
@@ -54,7 +57,8 @@ function EmpApp() {
             <div className="leftMenu"
                 style={{
                     display: 'flex',
-                    float: 'left', width: '15%',
+                    float: 'left', 
+                    width: '15%',
                     justifyContent: 'left', height: '100%',
                     boxShadow: '2px 0 0 rgba(0, 0, 0, 0.1)',
                 }}
@@ -63,7 +67,8 @@ function EmpApp() {
             </div>
             <Root
                 header={<EmpHeader employees={employees} />}
-                content={<EmpList employees={employees} />}
+                content={<EmpList />}
+                // content={<EmpList employees={employees} />}
                 ref={pageLayout}
                 rightSidebarContent={<EmpSidebarContent />}
                 rightSidebarOpen={rightSidebarOpen}
