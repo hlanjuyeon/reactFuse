@@ -60,7 +60,7 @@ const routes: FuseRoutesType = [
 	// 기본 페이지 : 클라이언트가 페이지를 실행하면 바로 나타나는 화면
 	// 권한 부여로 이동가능
 	{
-		path: '/reactFuse',
+		path: '/',
 		element: <Navigate to="/dashboards/project" />,
 		auth: settingsConfig.defaultAuth	
 	},
