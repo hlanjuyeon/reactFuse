@@ -1,5 +1,3 @@
-import { deflate } from "zlib";
-
 type Employee = {
 	id: number;
 	img: string;

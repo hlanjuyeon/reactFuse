@@ -58,7 +58,7 @@ function BasicTab({emp}) {
                 >
                     E-Mail
                 </div>
-                <div>{emp.id}</div>
+                <div>No Data</div>
             </div>
             <div
                 style={{
