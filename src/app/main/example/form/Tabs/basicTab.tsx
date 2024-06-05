@@ -2,7 +2,7 @@ import empCard from '../formImg/empCard.png';
 import employmentDtate from '../formImg/employmentDate.png';
 import empPosition from '../formImg/empPosition.png';
 
-function BasicTab({emp}) {
+function BasicTab({ emp }) {
 
     return (
         <>
@@ -58,7 +58,7 @@ function BasicTab({emp}) {
                 >
                     E-Mail
                 </div>
-                <div>No Data</div>
+                <div>{emp.email}</div>
             </div>
             <div
                 style={{
@@ -139,7 +139,9 @@ function BasicTab({emp}) {
                 >
                     入社日
                 </div>
-                <div>{emp.employmentDate} &nbsp;勤続年数 : {emp.workingYear}</div>
+                <div>{emp.employmentDate} &nbsp;
+                    &#40;&nbsp; 勤続年数 : {emp.workingYear}&nbsp;&#41;
+                </div>
             </div>
         </>
     )

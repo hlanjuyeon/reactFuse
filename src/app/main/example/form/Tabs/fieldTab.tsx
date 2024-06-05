@@ -1,6 +1,7 @@
 import listImg from '../formImg/listImg.png';
 
 function FieldTab({emp}) {
+
     return (
         <>
             <div
@@ -28,7 +29,7 @@ function FieldTab({emp}) {
                 >
                     現場名
                 </div>
-                <div>No Data</div>
+                <div>{emp.fieldName != "" ? emp.fieldName : "TOMATO 🍅"}</div>
             </div>
             <div
                 style={{
@@ -55,7 +56,7 @@ function FieldTab({emp}) {
                 >
                     状態
                 </div>
-                <div>No Data</div>
+                <div>{emp.fieldName != "" ? "現場" : "本社"}</div>
             </div>
         </>
     )

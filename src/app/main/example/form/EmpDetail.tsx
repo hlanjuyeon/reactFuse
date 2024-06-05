@@ -70,8 +70,7 @@ function EmpDetail() {
                         height: '16rem',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center',
-                        marginTop: '11rem',
+                        marginTop: '-6rem',
                     }}
                 >
 
