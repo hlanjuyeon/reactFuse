@@ -1,7 +1,7 @@
 import '../style.css';
 import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
 import NavLinkAdapter from "@fuse/core/NavLinkAdapter";
-import { Button, InputLabel, Select, TextField } from "@mui/material";
+import { Button, FormLabel, InputAdornment, InputLabel, Select, TextField } from "@mui/material";
 import { useState } from 'react';
 import BasicTab from './Tabs/basicTab';
 import FieldTab from './Tabs/fieldTab';
@@ -24,6 +24,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import empName from './formImg/empName.png';
+import empEmail from './formImg/empEmail.png';
+import empField from './formImg/empField.png';
+import positionImg from './formImg/positionImg.png';
+import employmentDate from './formImg/employmentDate.png';
 
 type FormType = Emp;
 
@@ -133,20 +138,60 @@ function EmpForm() {
                         >
                             <Controller
                                 control={control}
+                                name="name1"
+                                render={({ field }) => (
+                                    <TextField
+                                        {...field}
+                                        label="Name(漢字)"
+                                        placeholder="永野　芽郁"
+                                        id="name1"
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        InputProps={{
+                                            startAdornment: (
+                                                <img
+                                                    style={{
+                                                        width: '25px',
+                                                        height: '25px',
+                                                        marginRight: '1rem',
+                                                    }}
+                                                    src={empName}
+                                                />
+                                            )
+                                        }}
+                                    />
+                                )}
+                            />
+                        </div>
+
+                        <div
+                            style={{
+                                marginBottom: '3rem',
+                            }}
+                        >
+                            <Controller
+                                control={control}
                                 name="name2"
                                 render={({ field }) => (
                                     <TextField
                                         {...field}
-                                        label="name2"
-                                        placeholder="name2"
+                                        label="Name(カタカナ)"
+                                        placeholder="ナガイ　メイ"
                                         id="name2"
                                         variant="outlined"
                                         required
                                         fullWidth
                                         InputProps={{
                                             startAdornment: (
-                                                <div>zzzzzzzz</div>
-                                            )
+                                                <img
+                                                    style={{
+                                                        width: '25px',
+                                                        height: '25px',
+                                                        marginRight: '1rem',
+                                                    }}
+                                                    src={empName}
+                                                />)
                                         }}
                                     />
                                 )}
@@ -164,16 +209,22 @@ function EmpForm() {
                                 render={({ field }) => (
                                     <TextField
                                         {...field}
-                                        label="name3"
-                                        placeholder="name3"
+                                        label="Name(English)"
+                                        placeholder="Nagano Mei"
                                         id="name3"
                                         variant="outlined"
                                         required
                                         fullWidth
                                         InputProps={{
                                             startAdornment: (
-                                                <div>zzzzzzzz</div>
-                                            )
+                                                <img
+                                                    style={{
+                                                        width: '25px',
+                                                        height: '25px',
+                                                        marginRight: '1rem',
+                                                    }}
+                                                    src={empName}
+                                                />)
                                         }}
                                     />
                                 )}
@@ -192,16 +243,22 @@ function EmpForm() {
                                 render={({ field }) => (
                                     <TextField
                                         {...field}
-                                        label="name4"
-                                        placeholder="name4"
+                                        label="Name(한글)"
+                                        placeholder="나가노 메이"
                                         id="name4"
                                         variant="outlined"
                                         required
                                         fullWidth
                                         InputProps={{
                                             startAdornment: (
-                                                <div>zzzzzzzz</div>
-                                            )
+                                                <img
+                                                    style={{
+                                                        width: '25px',
+                                                        height: '25px',
+                                                        marginRight: '1rem',
+                                                    }}
+                                                    src={empName}
+                                                />)
                                         }}
                                     />
                                 )}
@@ -214,11 +271,25 @@ function EmpForm() {
                             }}
                         >
                             <FormControl sx={{ width: '100%' }}>
-                                <InputLabel id="demo-simple-select-label">position</InputLabel>
+                                <InputLabel id="demo-simple-select-label" >
+                                    Position
+                                </InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
                                     label="position"
+                                    startAdornment={(
+                                        <InputAdornment position="start">
+                                            <img
+                                                style={{
+                                                    width: '25px',
+                                                    height: '25px',
+                                                    marginRight: '1rem',
+                                                }}
+                                                src={positionImg}
+                                            />
+                                        </InputAdornment>
+                                    )}
                                 >
                                     <MenuItem value="President">社長</MenuItem>
                                     <MenuItem value="Director">取締役</MenuItem>
@@ -238,7 +309,9 @@ function EmpForm() {
                                 marginBottom: '3rem',
                             }}
                         >
-                            <DatePicker label="EmploymentDate" />
+                            <DatePicker
+                                label="EmploymentDate"
+                            />
                         </div>
                         <div
                             style={{
@@ -252,15 +325,21 @@ function EmpForm() {
                                     <TextField
                                         {...field}
                                         label="email"
-                                        placeholder="email"
+                                        placeholder="Email"
                                         id="email"
                                         variant="outlined"
                                         required
                                         fullWidth
                                         InputProps={{
                                             startAdornment: (
-                                                <div>zzzzzzzz</div>
-                                            )
+                                                <img
+                                                    style={{
+                                                        width: '25px',
+                                                        height: '25px',
+                                                        marginRight: '1rem',
+                                                    }}
+                                                    src={empEmail}
+                                                />)
                                         }}
                                     />
                                 )}
@@ -272,62 +351,88 @@ function EmpForm() {
                                 marginBottom: '3rem',
                             }}
                         >
-                            <FormGroup>
-                                <FormControlLabel required control={<Checkbox defaultChecked />} label="本社" />
-                                <div
-                                    style={{
-                                        width: '100%',
+                            <FormControl
+                                fullWidth
+                                variant="outlined"
+                            >
+                                <FormLabel
+                                    component="legend"
+                                    sx={{
                                         display: 'flex',
-                                        flexDirection: "row",
+                                        flexDirection: 'row',
+                                        marginBottom: '1rem',
                                     }}
                                 >
+                                    <img
+                                        style={{
+                                            width: '25px',
+                                            height: '25px',
+                                            marginRight: '1rem',
+                                        }}
+                                        src={empField}
+                                    />
+                                    Place of Work
+                                </FormLabel>
+                                <FormGroup>
                                     <div
                                         style={{
-                                            width: '20%%',
+                                            width: '20%',
                                             display: 'flex',
-                                            marginRight: '10px',
+                                            flexDirection: 'row',
                                         }}
                                     >
                                         <FormControlLabel
-                                            control={<Checkbox />}
-                                            label="現場" />
+                                            control={
+                                                <Checkbox name="headquarters" defaultChecked />
+                                            }
+                                            label="本社"
+                                        />
                                     </div>
-
-
                                     <div
                                         style={{
-                                            width: '80%%',
+                                            width: '70%',
                                             display: 'flex',
+                                            flexDirection: 'row'
+
                                         }}
                                     >
+                                        <FormControlLabel
+                                            control={
+                                                <>
+                                                    <Checkbox
+                                                        name="field "
+                                                    />
+
+                                                </>
+                                            }
+                                            label="現場"
+                                            sx={{
+                                                width: '30%',
+                                            }}
+                                        />
+
                                         <Controller
                                             control={control}
                                             name="fieldName"
                                             render={({ field }) => (
                                                 <TextField
                                                     {...field}
-                                                    label="fieldName"
-                                                    placeholder="fieldName"
+                                                    label="FieldName"
+                                                    placeholder="FieldName"
                                                     id="fieldName"
                                                     variant="outlined"
-                                                    required
                                                     fullWidth
-                                                    InputProps={{
-                                                        startAdornment: (
-                                                            <div>zzzzzzzz</div>
-                                                        )
-                                                    }}
                                                 />
                                             )}
                                         />
                                     </div>
-                                </div>
+                                </FormGroup>
 
-                            </FormGroup>
+                            </FormControl>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }
